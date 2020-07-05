@@ -7,9 +7,10 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
+
 import Category from './Category';
 
-@Entity('users')
+@Entity('transactions')
 class Transaction {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -20,15 +21,15 @@ class Transaction {
   @Column()
   type: 'income' | 'outcome';
 
-  @Column('numeric')
+  @Column('decimal')
   value: number;
+
+  @ManyToOne(() => Category)
+  @JoinColumn({ name: 'category_id' })
+  category: Category;
 
   @Column()
   category_id: string;
-
-  @ManyToOne(() => Category)
-  @JoinColumn({ name: 'provider_id' })
-  provider: Category;
 
   @CreateDateColumn()
   created_at: Date;
