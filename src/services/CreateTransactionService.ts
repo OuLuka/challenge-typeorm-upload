@@ -27,6 +27,10 @@ class CreateTransactionService {
     const transactionsRepository = getCustomRepository(TransactionRepository);
     const categoriesRepository = getRepository(Category);
 
+    if (value < 0) {
+      throw new AppError('The value must be higher than 0');
+    }
+
     if (type !== 'income' && type !== 'outcome') {
       throw new AppError('The type must be income or outcome');
     }
