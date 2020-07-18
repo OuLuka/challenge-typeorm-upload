@@ -1,1 +1,1 @@
-# rocketseat-challenge-typeorm-upload
+# challenge-typeorm-upload
