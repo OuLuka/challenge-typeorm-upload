@@ -2,10 +2,10 @@ version: '3.7'
 
 services:
   postgres:
-    container_name: gobarber_bootcamp
+    container_name: bootcamp_transactions
     image: postgres
     ports:
       - '5432:5432'
     environment:
       POSTGRES_PASSWORD: docker
-      POSTGRES_DB: gostack_desafio06
+      POSTGRES_DB: bootcamp_desafio06
